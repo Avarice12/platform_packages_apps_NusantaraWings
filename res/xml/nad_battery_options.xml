@@ -57,4 +57,10 @@
         android:title="@string/battery_bar_title"
         android:summary="@string/battery_bar_summary"
         android:fragment="com.nusantara.wings.fragments.statusbar.BatteryBar" />
+
+    <Preference
+        android:key="aggressive_battery"
+        android:title="@string/aggressive_battery_title"
+        android:summary="@string/aggressive_battery_summary"
+        android:fragment="com.nusantara.wings.fragments.AggressiveBattery" />
 </PreferenceScreen>
