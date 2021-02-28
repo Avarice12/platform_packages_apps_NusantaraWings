@@ -22,33 +22,23 @@ import android.content.res.Resources;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.UserHandle;
-import com.android.settings.R;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
-import android.text.TextUtils;
 
 import androidx.preference.Preference;
-import androidx.preference.PreferenceGroup;
 import androidx.preference.ListPreference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
-import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.PreferenceFragment;
-import androidx.preference.SwitchPreference;
 
 import com.android.internal.logging.nano.MetricsProto;
 
-import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.R;
-import com.android.settingslib.search.Indexable;
+import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.HashMap;
-import java.util.Map;
 
 import com.nusantara.support.colorpicker.ColorPickerPreference;
 import com.nusantara.support.preferences.SystemSettingSwitchPreference;
@@ -61,7 +51,6 @@ import com.nusantara.wings.UtilsNad;
 public class Notifications extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
-    private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
     private static final String NOTIFICATION_HEADER = "notification_headers";
     private static final String CENTER_NOTIFICATION_HEADER = "center_notification_headers";
     private static final String HEADS_UP_NOTIFICATIONS_ENABLED = "heads_up_notifications_enabled";
@@ -84,13 +73,6 @@ public class Notifications extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.nad_notifications);
-        PreferenceScreen prefScreen = getPreferenceScreen();
-        final ContentResolver resolver = getActivity().getContentResolver();
-
-        PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
-        if (!Utils.isVoiceCapable(getActivity())) {
-            prefScreen.removePreference(incallVibCategory);
-        }
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final ContentResolver resolver = getActivity().getContentResolver();
 
