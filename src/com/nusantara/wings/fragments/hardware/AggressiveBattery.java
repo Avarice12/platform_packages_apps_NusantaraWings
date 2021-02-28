@@ -36,6 +36,6 @@ public class AggressiveBattery extends SettingsPreferenceFragment {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.HAVOC_SETTINGS;
+        return MetricsProto.MetricsEvent.NUSANTARA_PRJ;
     }
 }
